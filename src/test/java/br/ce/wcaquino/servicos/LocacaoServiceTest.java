@@ -1,11 +1,13 @@
 package br.ce.wcaquino.servicos;
 
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
+import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -27,6 +29,7 @@ public class LocacaoServiceTest {
 
 	@Rule
 	public ExpectedException exp = ExpectedException.none();
+    private Locacao alugarFilmes;
 
 	@Before
 	public void inicarIntanciaLocacaoService(){
@@ -34,15 +37,15 @@ public class LocacaoServiceTest {
 	}
 
     @Test
-    public void testeAlugarFilme() throws Exception {
+    public void deveAlugarFilme() throws Exception {
+		Assume.assumeFalse(DataUtils.verificarDiaSemana(new Date(), Calendar.SATURDAY));
 
 		//Cenário
 		Usuario usuario = new Usuario("Usuario 1");
-		Filme filme = new Filme("Anjos da noite", 0, 10.50);
-		List<Filme> filmes = Arrays.asList(filme);
+		List<Filme> filmes = Arrays.asList(new Filme("Anjos da noite", 0, 10.50));
 
 		//Ação
-		Locacao alugarFilme = service.alugarFilme(usuario, filmes);
+		Locacao alugarFilme = service.alugarFilmes(usuario, filmes);
 
 		// testes para ver se variaveis na class JAVA poderia ser vista aqui
 		service.vDefauit= "";
@@ -64,29 +67,27 @@ public class LocacaoServiceTest {
 		error.checkThat(DataUtils.isMesmaData(alugarFilme.getDataRetorno(), DataUtils.obterDataComDiferencaDias(1)), CoreMatchers.is(true) );
     }
 
-	@Test(expected = FilmeSemEstoqueException.class) // forme elegante
-	public void testeLocalcao_ErroAoALugarFilmeSemEstoque() throws Exception{
+	@Test(expected = Exception.class) // forma elegante
+	public void deveLancarExcecaoAoAlugarFilmeSemEstoque() throws Exception{
 
 		//Cenário
 		Usuario usuario = new Usuario("Usuario 1");
-		Filme filme = new Filme("Anjos da noite", 0, 10.50);
-		List<Filme> filmes = Arrays.asList(filme);
+		List<Filme> filmes = Arrays.asList(new Filme("Anjos da noite", 0, 10.50));
 		
 		//Ação
-		service.alugarFilme(usuario, filmes);
+		service.alugarFilmes(usuario, filmes);
 	}
 
 	@Test() // forme Robusta
-	public void testeLocalcao_ErroUsuarioNull() throws FilmeSemEstoqueException{
+	public void deveLancarExcecaoAoUsuarioNull() throws FilmeSemEstoqueException{
 
 		//Cenário
 		Usuario usuario = null;
-		Filme filme = new Filme("Anjos da noite", 0, 10.50);
-		List<Filme> filmes = Arrays.asList(filme);
+		List<Filme> filmes = Arrays.asList(new Filme("Anjos da noite", 0, 10.50));
 		
 		//Ação
 		try {
-			service.alugarFilme(usuario, filmes);
+			service.alugarFilmes(usuario, filmes);
 			Assert.fail("Erro não chamado como esperado");
 		} catch (LocacaoException e) {
 			Assert.assertThat(e.getMessage(), CoreMatchers.is("Usuario não existe!"));
@@ -94,7 +95,7 @@ public class LocacaoServiceTest {
 	}
 
 	@Test() // forme "nova"
-	public void testeLocalcao_ErroFilmeNull() throws LocacaoException, FilmeSemEstoqueException{
+	public void deveLancarExcecaoQuandoFilmeVierNull() throws LocacaoException, FilmeSemEstoqueException{
 
 		//Cenário;
 		Usuario usuario = new Usuario("Usuario 1");
@@ -104,7 +105,7 @@ public class LocacaoServiceTest {
 		exp.expectMessage("Filme não existe!");
 		
 		//Ação
-		service.alugarFilme(usuario, filmes);
+		service.alugarFilmes(usuario, filmes);
 	}
     
 }
