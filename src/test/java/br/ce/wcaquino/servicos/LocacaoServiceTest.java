@@ -14,6 +14,8 @@ import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
 
+import br.ce.wcaquino.builders.FilmeBuilder;
+import br.ce.wcaquino.builders.UsuarioBuilder;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
@@ -41,8 +43,8 @@ public class LocacaoServiceTest {
 		Assume.assumeFalse(DataUtils.verificarDiaSemana(new Date(), Calendar.SATURDAY));
 
 		//Cenário
-		Usuario usuario = new Usuario("Usuario 1");
-		List<Filme> filmes = Arrays.asList(new Filme("Anjos da noite", 0, 10.50));
+		Usuario usuario = UsuarioBuilder.umUsuario().instancia();
+		List<Filme> filmes = Arrays.asList(FilmeBuilder.umFilme().instacia() );
 
 		//Ação
 		Locacao alugarFilme = service.alugarFilmes(usuario, filmes);
@@ -71,8 +73,8 @@ public class LocacaoServiceTest {
 	public void deveLancarExcecaoAoAlugarFilmeSemEstoque() throws Exception{
 
 		//Cenário
-		Usuario usuario = new Usuario("Usuario 1");
-		List<Filme> filmes = Arrays.asList(new Filme("Anjos da noite", 0, 10.50));
+		Usuario usuario = UsuarioBuilder.umUsuario().instancia();
+		List<Filme> filmes = Arrays.asList(FilmeBuilder.umFilme().filmeSemEstoque().instacia());
 		
 		//Ação
 		service.alugarFilmes(usuario, filmes);
@@ -83,7 +85,7 @@ public class LocacaoServiceTest {
 
 		//Cenário
 		Usuario usuario = null;
-		List<Filme> filmes = Arrays.asList(new Filme("Anjos da noite", 0, 10.50));
+		List<Filme> filmes = Arrays.asList(FilmeBuilder.umFilme().instacia() );
 		
 		//Ação
 		try {
@@ -98,7 +100,7 @@ public class LocacaoServiceTest {
 	public void deveLancarExcecaoQuandoFilmeVierNull() throws LocacaoException, FilmeSemEstoqueException{
 
 		//Cenário;
-		Usuario usuario = new Usuario("Usuario 1");
+		Usuario usuario = UsuarioBuilder.umUsuario().instancia();
 		List<Filme> filmes = null;
 		// fica dentro do cenário, pois ele irá memorizar o que deve acontecer na parte de "AÇÃO"
 		exp.expect(LocacaoException.class);

@@ -13,6 +13,8 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
+import br.ce.wcaquino.builders.FilmeBuilder;
+import br.ce.wcaquino.builders.UsuarioBuilder;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
@@ -38,12 +40,12 @@ public class CalcularValoresDasLocacoesTest {
 		service = new LocacaoService();
 	}
 
-	private static Filme filme1 = new Filme("Filme1", 1, 4.0);
-	private static Filme filme2 = new Filme("Filme1", 1, 4.0);
-	private static Filme filme3 = new Filme("Filme1", 1, 4.0);
-	private static Filme filme4 = new Filme("Filme1", 1, 4.0);
-	private static Filme filme5 = new Filme("Filme1", 1, 4.0);
-	private static Filme filme6 = new Filme("Filme1", 1, 4.0);
+	private static Filme filme1 = FilmeBuilder.umFilme().instacia();
+	private static Filme filme2 = FilmeBuilder.umFilme().instacia();
+	private static Filme filme3 = FilmeBuilder.umFilme().instacia();
+	private static Filme filme4 = FilmeBuilder.umFilme().instacia();
+	private static Filme filme5 = FilmeBuilder.umFilme().instacia();
+	private static Filme filme6 = FilmeBuilder.umFilme().instacia();
 
 	@Parameters(name = "{2} - {1}")
 	public static Collection<Object []> getParamCollection(){
@@ -62,7 +64,7 @@ public class CalcularValoresDasLocacoesTest {
 	public void deveCalcularValorDaLocacaoDeAcordoComQuantidadeDeFilmes() throws LocacaoException, FilmeSemEstoqueException{
 
 		//Cenário
-		Usuario usuario = new Usuario("Usuario 1");
+		Usuario usuario = UsuarioBuilder.umUsuario().instancia();
 		
 		//Ação
 		Locacao alugarFilmes = service.alugarFilmes(usuario, filmes);
