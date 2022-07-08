@@ -1,0 +1,34 @@
+-------------------------------------------------------------------------------
+Test set: br.ce.wcaquino.servicos.LocacaoServiceTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
+br.ce.wcaquino.servicos.LocacaoServiceTest  Time elapsed: 0 sec  <<< ERROR!
+java.lang.RuntimeException: Internal error: Failed to find the "modifiers" field in method setInternalState.
+	at org.powermock.reflect.internal.WhiteboxImpl.sedModifiersToField(WhiteboxImpl.java:2321)
+	at org.powermock.reflect.internal.WhiteboxImpl.removeFinalModifierIfPresent(WhiteboxImpl.java:2285)
+	at org.powermock.reflect.internal.WhiteboxImpl.setField(WhiteboxImpl.java:2271)
+	at org.powermock.reflect.internal.WhiteboxImpl.setInternalState(WhiteboxImpl.java:295)
+	at org.powermock.reflect.internal.WhiteboxImpl.setInternalState(WhiteboxImpl.java:308)
+	at org.powermock.reflect.Whitebox.setInternalState(Whitebox.java:190)
+	at org.powermock.modules.junit4.PowerMockRunner.run(PowerMockRunner.java:61)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: java.lang.NoSuchFieldException: modifiers
+	at java.base/java.lang.Class.getDeclaredField(Class.java:2610)
+	at org.powermock.reflect.internal.WhiteboxImpl.sedModifiersToField(WhiteboxImpl.java:2315)
+	... 18 more
+Caused by: java.lang.NoSuchFieldException: modifiers
+	at java.base/java.lang.Class.getDeclaredField(Class.java:2610)
+	at org.powermock.reflect.internal.WhiteboxImpl.sedModifiersToField(WhiteboxImpl.java:2315)
+	... 18 more
+

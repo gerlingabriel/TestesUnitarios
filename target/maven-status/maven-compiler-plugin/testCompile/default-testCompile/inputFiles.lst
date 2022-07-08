@@ -1,0 +1,11 @@
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/test/java/br/ce/wcaquino/builders/UsuarioBuilder.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/test/java/br/ce/wcaquino/servicos/LocacaoServiceTest.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/test/java/br/ce/wcaquino/builders/LocacaoBuilder.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/test/java/br/ce/wcaquino/suite/LocacaoGrupoTestesAlugandoFilmeTest.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/test/java/br/ce/wcaquino/servicos/LocacaoServiceSemPoweMockTest.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/test/java/br/ce/wcaquino/servicos/CalcularValoresDasLocacoesTest.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/test/java/br/ce/wcaquino/matchers/DiaSemanaMatcher.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/test/java/br/ce/wcaquino/matchers/DataDiferencaDiasMatcher.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/test/java/br/ce/wcaquino/servicos/CalculadoraTest.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/test/java/br/ce/wcaquino/matchers/MatchersProprios.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/test/java/br/ce/wcaquino/builders/FilmeBuilder.java

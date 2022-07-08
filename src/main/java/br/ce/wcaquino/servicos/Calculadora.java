@@ -10,4 +10,8 @@ public class Calculadora {
         return a - b;
     }
 
+    public void imprimi() {
+        System.out.println("Teste!!!!");
+    }
+
 }

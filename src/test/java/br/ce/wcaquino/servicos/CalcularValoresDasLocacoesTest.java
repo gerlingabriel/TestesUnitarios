@@ -12,19 +12,27 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import br.ce.wcaquino.builders.FilmeBuilder;
 import br.ce.wcaquino.builders.UsuarioBuilder;
+import br.ce.wcaquino.dao.LocacaoDao;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
-import br.ce.wcaquino.exception.FilmeSemEstoqueException;
-import br.ce.wcaquino.exception.LocacaoException;
 
 @RunWith(Parameterized.class)
 public class CalcularValoresDasLocacoesTest {
 
+	@InjectMocks
     public LocacaoService service;
+
+	@Mock
+	public LocacaoDao dao;
+	@Mock
+	private SPCService spcService;
 
 	@Parameter
     public List<Filme> filmes;
@@ -37,7 +45,7 @@ public class CalcularValoresDasLocacoesTest {
 
     @Before
 	public void inicarIntanciaLocacaoService(){
-		service = new LocacaoService();
+		MockitoAnnotations.initMocks(this);
 	}
 
 	private static Filme filme1 = FilmeBuilder.umFilme().instacia();
@@ -61,7 +69,7 @@ public class CalcularValoresDasLocacoesTest {
 	}
 
     @Test
-	public void deveCalcularValorDaLocacaoDeAcordoComQuantidadeDeFilmes() throws LocacaoException, FilmeSemEstoqueException{
+	public void deveCalcularValorDaLocacaoDeAcordoComQuantidadeDeFilmes() throws Exception{
 
 		//Cenário
 		Usuario usuario = UsuarioBuilder.umUsuario().instancia();

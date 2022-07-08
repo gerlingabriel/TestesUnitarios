@@ -1,0 +1,12 @@
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/main/java/br/ce/wcaquino/entidades/Filme.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/main/java/br/ce/wcaquino/entidades/Usuario.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/main/java/br/ce/wcaquino/exception/FilmeSemEstoqueException.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/main/java/br/ce/wcaquino/servicos/EmailService.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/main/java/br/ce/wcaquino/dao/LocacaoDao.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/main/java/br/ce/wcaquino/runners/ParaleloRunner.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/main/java/br/ce/wcaquino/exception/LocacaoException.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/main/java/br/ce/wcaquino/entidades/Locacao.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/main/java/br/ce/wcaquino/servicos/SPCService.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/main/java/br/ce/wcaquino/utils/DataUtils.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/main/java/br/ce/wcaquino/servicos/Calculadora.java
+/home/gabriel/Documentos/projetos/TestesUnitarios/src/main/java/br/ce/wcaquino/servicos/LocacaoService.java
